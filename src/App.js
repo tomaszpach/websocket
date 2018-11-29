@@ -2,33 +2,20 @@ import React, {Component} from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
+import WebSocket from './components/WebSocketComponent';
+import Api from './components/Api';
+
 class App extends Component {
-
-
-    componentDidMount() {
-        const websocket = new WebSocket('wss://api2.bitbay.net/websocket/');
-        websocket.onopen = e => {
-            console.log('CONNECTED');
-
-            websocket.send('{"action": "subscribe-public", "module": "trading", "path": "ticker"}')
-        };
-
-        websocket.onmessage = e => {
-            const data = e.data,
-                parsedData = JSON.parse(data);
-
-            console.log('CALOSC', e);
-            console.log('parsedData', parsedData);
-            console.log('data', parsedData.message.market.code);
-        };
-        console.log('componentDidMount()')
-    }
-
+    state = {
+        response: {}
+    };
 
     render() {
         return (
             <div className="App">
-                placeholder
+                <h2>Booty Bay</h2>
+                <Api/>
+                {/*<WebSocket />*/}
             </div>
         );
     }
