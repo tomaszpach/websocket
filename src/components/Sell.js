@@ -1,17 +1,16 @@
 import React from 'react';
 
-const Sell = ({data, currency}) => {
-    console.log('sell data', data);
-
-    if (data === undefined) {
-        return <h2>FETCHING DATA</h2>
+const Sell = ({response, currency}) => {
+    // todo add loader
+    if (!response.hasOwnProperty('data')) {
+        return <h2>Fetching data from API</h2>
     }
 
     return (
         <div>
-            <h2>Sell - ${currency}</h2>
+            <h2>Sell - {currency}</h2>
             {
-                data.sell.map((item, index) => {
+                response.data.sell.map((item, index) => {
                     return <li key={index}>{item.ra}</li>
                 })
             }

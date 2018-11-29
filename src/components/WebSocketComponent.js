@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
+import WebSocketData from './WebSocketData';
 
 class WebSocketComponent extends Component {
+    state = {
+        parsedData: {}
+    };
+
     componentDidMount() {
         const webSocket = new WebSocket('wss://api2.bitbay.net/websocket/');
-        webSocket.onopen = e => {
-            console.log('CONNECTED');
-
+        webSocket.onopen = () => {
             webSocket.send('{"action": "subscribe-public", "module": "trading", "path": "ticker"}')
         };
 
@@ -13,19 +16,15 @@ class WebSocketComponent extends Component {
             const data = e.data,
                 parsedData = JSON.parse(data);
 
-            console.log('CALOSC', e);
-            console.log('parsedData', parsedData);
-            if (parsedData.message) {
-                console.log('Market code:', parsedData.message.market.code);
-            }
+            this.setState({parsedData});
         };
-        console.log('componentDidMount()')
     }
 
     render() {
         return (
             <div>
-
+                <h1>WebSocket:</h1>
+                <WebSocketData data={this.state.parsedData} currency={this.props.currency}/>
             </div>
         );
     }
