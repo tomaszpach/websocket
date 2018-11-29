@@ -1,28 +1,37 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+// import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+
+
+    componentDidMount() {
+        const websocket = new WebSocket('wss://api2.bitbay.net/websocket/');
+        websocket.onopen = e => {
+            console.log('CONNECTED');
+
+            websocket.send('{"action": "subscribe-public", "module": "trading", "path": "ticker"}')
+        };
+
+        websocket.onmessage = e => {
+            const data = e.data,
+                parsedData = JSON.parse(data);
+
+            console.log('CALOSC', e);
+            console.log('parsedData', parsedData);
+            console.log('data', parsedData.message.market.code);
+        };
+        console.log('componentDidMount()')
+    }
+
+
+    render() {
+        return (
+            <div className="App">
+                placeholder
+            </div>
+        );
+    }
 }
 
 export default App;
