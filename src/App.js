@@ -6,6 +6,7 @@ import WebSocket from './components/WebSocketComponent';
 import Api from './components/Api';
 import axios from "axios";
 
+// todo add gh-pages and push build
 class App extends Component {
     state = {
         url: 'https://api.bitbay.net/rest/trading/orderbook/',
