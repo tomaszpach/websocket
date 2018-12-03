@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
+import Header from './components/Header';
 import WebSocket from './components/WebSocketComponent';
 import Api from './components/Api';
 import axios from "axios";
@@ -36,7 +37,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <h2>Booty Bay</h2>
+                <Header />
                 <WebSocket currency={this.state.currency}/>
                 <Api state={this.state} changeCurrency={(e) => this.changeCurrency(e)}/>
             </div>
