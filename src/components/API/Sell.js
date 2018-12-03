@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Sell = ({response, currency}) => {
+    const splitCurrency = currency.split('-');
     // todo add loader
     if (!response.hasOwnProperty('data')) {
         return <h2>Fetching data from API</h2>
@@ -26,8 +27,8 @@ const Sell = ({response, currency}) => {
                         <tbody>
                         <tr className="table-head">
                             <th>Kurs</th>
-                            <th>Ilość<span className="curr1"> BTC</span></th>
-                            <th>Suma<span className="curr2"> PLN</span></th>
+                            <th>Ilość<span className="curr1"> {splitCurrency[0]}</span></th>
+                            <th>Suma<span className="curr2"> {splitCurrency[1]}</span></th>
                         </tr>
                         {table}
                         </tbody>
