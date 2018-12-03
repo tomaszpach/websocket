@@ -34,12 +34,10 @@ class App extends Component {
         this.fetchData();
     }
 
-
-
     render() {
         return (
             <div className="App">
-                <Header />
+                <Header currency={this.state.currency}/>
                 <WebSocket response={this.state.response} currency={this.state.currency}/>
                 <Api state={this.state} changeCurrency={(e) => this.changeCurrency(e)}/>
             </div>
