@@ -9,6 +9,7 @@ import API from './components/API/index';
 import axios from "axios";
 
 // todo add gh-pages and push build
+// todo przebuduj pod reduxa
 class App extends Component {
     state = {
         url: 'https://api.bitbay.net/rest/trading/orderbook/',
