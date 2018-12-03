@@ -28,25 +28,30 @@ class WebSocketData extends React.Component {
         return false;
     }
 
-    // todo ustaw ładnie te dwa elementy - na dwóch krawędziach (lewa i prawa)
     render() {
         const displayApiData = !this.props.data.hasOwnProperty('message');
 
         if (this.props.response.hasOwnProperty('data') || this.props.data.hasOwnProperty('message')) {
             return (
-                <div className="buy-sell row">
+                <div className="buy-sell">
                     <p className="buy">
                         <b>{this.state.buyText} </b>
 
-                        {displayApiData ? this.props.response.data.buy[0].ra :
-                            this.props.data.message.highestBid}</p>
+                        <span>
+                            {displayApiData ? this.props.response.data.buy[0].ra :
+                                this.props.data.message.highestBid}
+                        </span>
+                    </p>
 
 
                     <p className="sell">
                         <b>{this.state.sellText} </b>
 
-                        {displayApiData ? this.props.response.data.sell[0].ra :
-                            this.props.data.message.lowestAsk}</p>
+                        <span>
+                            {displayApiData ? this.props.response.data.sell[0].ra :
+                                this.props.data.message.lowestAsk}
+                        </span>
+                    </p>
                 </div>
             );
         }

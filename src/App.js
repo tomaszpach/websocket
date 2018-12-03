@@ -39,7 +39,7 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App container-fluid">
+            <div className="container-fluid">
                 <Header currency={this.state.currency}/>
                 <CurrencyButton currency={this.state.currency} onChange={(e) => this.changeCurrency(e)}/>
                 <WebSocket response={this.state.response} currency={this.state.currency}/>

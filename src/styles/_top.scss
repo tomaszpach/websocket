@@ -1,7 +1,20 @@
 .buy-sell {
+  display: flex;
+  justify-content: space-around;
   color: #ffffff;
   background-color: #202f45;
   padding: 20px 0;
+  width: 100%;
+
+  .buy, .sell {
+    margin-bottom: 0;
+
+    span {
+      display: block;
+      text-align: center;
+      font-size: 20px;
+    }
+  }
 
   .buy {
     b {
