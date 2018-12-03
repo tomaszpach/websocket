@@ -6,9 +6,20 @@ const SellBuyTable = ({response, currency, buySell}) => {
     if (!response.hasOwnProperty('data')) {
         return <h2>Fetching data from API</h2>
     } else {
-        const splitCurrency = currency.split('-'),
-            data = buySell === 'buy' ? response.data.buy : response.data.sell,
-            text = buySell === 'buy' ? 'Oferty skupu - BID' : 'Oferty sprzedaży - ASK';
+        const splitCurrency = currency.split('-');
+
+        let data, text1, text2;
+
+        if (buySell === 'buy') {
+            data = response.data.buy;
+            text1 = 'Oferty skupu - ';
+            text2 = 'BID'
+        } else {
+            data = response.data.sell;
+            text1 = 'Oferty sprzedaży - ';
+            text2 = 'ASK';
+        }
+
 
         let table = data.map((item, index) => {
             if (index <= 10) {
@@ -23,15 +34,15 @@ const SellBuyTable = ({response, currency, buySell}) => {
         });
 
         return (
-            <div>
-                <h4>{text}</h4>
+            <div className={'orderbook ' + text2}>
+                <h4>{text1}<span>{text2}</span></h4>
                 <div className="table-responsive">
                     <table className="table table-bordered">
                         <tbody>
                         <tr className="table-head">
                             <th>Kurs</th>
-                            <th>Ilość<span className="curr1"> {splitCurrency[0]}</span></th>
-                            <th>Suma<span className="curr2"> {splitCurrency[1]}</span></th>
+                            <th>Ilość <span>{splitCurrency[0]}</span></th>
+                            <th>Suma <span>{splitCurrency[1]}</span></th>
                         </tr>
                         {table}
                         </tbody>

@@ -1,0 +1,17 @@
+.orderbook {
+  &.BID {
+    h4 {
+      span {
+        color: #3fcfb4;
+      }
+    }
+  }
+
+  &.ASK {
+    h4 {
+      span {
+        color: #fd2a47;
+      }
+    }
+  }
+}
