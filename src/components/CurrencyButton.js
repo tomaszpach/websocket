@@ -22,6 +22,7 @@ const CurrencyButton = ({currency, onChange}) => {
                     <MenuItem value="LSK-PLN">LSK-PLN</MenuItem>
                     <MenuItem value="LTC-PLN">LTC-PLN</MenuItem>
                     <MenuItem value="GAME-PLN">GAME-PLN</MenuItem>
+                    <MenuItem value="DASH-PLN">DASH-PLN</MenuItem>
                 </Select>
             </FormControl>
         </div>
