@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Sell from './Sell';
+import SellBuyTable from './SellBuyTable';
 
 class Index extends Component {
     render() {
@@ -8,8 +8,8 @@ class Index extends Component {
 
         return (
             <div>
-                <h1>API:</h1>
-                <Sell response={response} currency={currency}/>
+                <SellBuyTable buySell={'buy'} response={response} currency={currency}/>
+                <SellBuyTable buySell={'sell'} response={response} currency={currency}/>
             </div>
         );
     }

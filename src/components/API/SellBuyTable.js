@@ -1,13 +1,16 @@
 import React from 'react';
 
-const Sell = ({response, currency}) => {
-    const splitCurrency = currency.split('-');
-    // todo add loader
+// todo add loader
+const SellBuyTable = ({response, currency, buySell}) => {
+
     if (!response.hasOwnProperty('data')) {
         return <h2>Fetching data from API</h2>
     } else {
-        console.log(response);
-        let table = response.data.buy.map((item, index) => {
+        const splitCurrency = currency.split('-'),
+            data = buySell === 'buy' ? response.data.buy : response.data.sell,
+            text = buySell === 'buy' ? 'Oferty skupu - BID' : 'Oferty sprzedaży - ASK';
+
+        let table = data.map((item, index) => {
             if (index <= 20) {
                 return (
                     <tr key={index}>
@@ -21,7 +24,7 @@ const Sell = ({response, currency}) => {
 
         return (
             <div>
-                <h4>Oferty sprzedaży ASK - {currency}</h4>
+                <h4>{text}</h4>
                 <div className="table-responsive">
                     <table className="table table-bordered">
                         <tbody>
@@ -39,4 +42,4 @@ const Sell = ({response, currency}) => {
     }
 };
 
-export default Sell;
+export default SellBuyTable;
