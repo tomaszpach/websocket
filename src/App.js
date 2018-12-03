@@ -10,6 +10,7 @@ import axios from "axios";
 
 // todo add gh-pages and push build
 // todo przebuduj pod reduxa
+// todo dodaj podświetlenie dla zmian!
 class App extends Component {
     state = {
         url: 'https://api.bitbay.net/rest/trading/orderbook/',

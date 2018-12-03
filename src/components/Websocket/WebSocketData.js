@@ -3,8 +3,8 @@ import React from 'react';
 // todo zaktualizuj dane po zmianie waluty / kursu
 class WebSocketData extends React.Component {
     state = {
-        buyText: 'SKUP * BID:',
-        sellText: 'SPRZEDAŻ * ASK:'
+        buyText: 'SKUP • BID:',
+        sellText: 'SPRZEDAŻ • ASK:'
     };
 
     componentDidUpdate(prevProps, prevState) {
