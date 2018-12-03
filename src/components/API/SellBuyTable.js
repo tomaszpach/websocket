@@ -11,7 +11,7 @@ const SellBuyTable = ({response, currency, buySell}) => {
             text = buySell === 'buy' ? 'Oferty skupu - BID' : 'Oferty sprzedaży - ASK';
 
         let table = data.map((item, index) => {
-            if (index <= 20) {
+            if (index <= 10) {
                 return (
                     <tr key={index}>
                         <td>{item.ra}</td>

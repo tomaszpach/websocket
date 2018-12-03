@@ -32,7 +32,7 @@ class WebSocketData extends React.Component {
 
         if (this.props.response.hasOwnProperty('data') || this.props.data.hasOwnProperty('message')) {
             return (
-                <div className="buy-sell">
+                <div className="buy-sell row">
                     <p className="buy">
                         <b>{this.state.buyText} </b>
 
