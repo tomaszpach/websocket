@@ -28,6 +28,7 @@ class WebSocketData extends React.Component {
         return false;
     }
 
+    // todo ustaw ładnie te dwa elementy - na dwóch krawędziach (lewa i prawa)
     render() {
         const displayApiData = !this.props.data.hasOwnProperty('message');
 

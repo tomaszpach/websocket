@@ -8,7 +8,7 @@ const CurrencyButton = ({currency, onChange}) => {
     return (
         <div>
             <FormControl>
-                <InputLabel htmlFor="currency-simple">Currency</InputLabel>
+                <InputLabel htmlFor="currency-simple">Waluta</InputLabel>
                 <Select
                     value={currency}
                     onChange={(e) => onChange(e)}
