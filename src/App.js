@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 import './App.css';
 
 import Header from './components/Header';
-import WebSocket from './components/WebSocketComponent';
-import Api from './components/Api';
+import WebSocket from './components/Websocket/WebSocketComponent';
+import Api from './components/API/Api';
 import axios from "axios";
 
 // todo add gh-pages and push build

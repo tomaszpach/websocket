@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import Sell from './Sell';
 
-import CurrencyButton from './CurrencyButton';
+import CurrencyButton from '../CurrencyButton';
 
 class Api extends Component {
     render() {
