@@ -23,8 +23,7 @@ class WebSocketComponent extends Component {
     render() {
         return (
             <div>
-                <h1>WebSocket:</h1>
-                <WebSocketData data={this.state.parsedData} currency={this.props.currency}/>
+                <WebSocketData response={this.props.response} data={this.state.parsedData} currency={this.props.currency}/>
             </div>
         );
     }
