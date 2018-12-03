@@ -3,6 +3,7 @@ import './App.css';
 import './styles/main.css';
 
 import Header from './components/Header';
+import CurrencyButton from './components/CurrencyButton';
 import WebSocket from './components/Websocket/WebSocketComponent';
 import API from './components/API/index';
 import axios from "axios";
@@ -38,8 +39,9 @@ class App extends Component {
         return (
             <div className="App">
                 <Header currency={this.state.currency}/>
+                <CurrencyButton currency={this.state.currency} onChange={(e) => this.changeCurrency(e)}/>
                 <WebSocket response={this.state.response} currency={this.state.currency}/>
-                <API state={this.state} changeCurrency={(e) => this.changeCurrency(e)}/>
+                <API state={this.state} />
             </div>
         );
     }

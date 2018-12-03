@@ -25,7 +25,6 @@ const CurrencyButton = ({currency, onChange}) => {
                 </Select>
             </FormControl>
         </div>
-
     );
 };
 
