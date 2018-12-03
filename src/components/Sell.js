@@ -8,7 +8,7 @@ const Sell = ({response, currency}) => {
 
     return (
         <div>
-            <h2>Sell - {currency}</h2>
+            <h2>Oferty sprzedaży ASK - {currency}</h2>
             {
                 response.data.sell.map((item, index) => {
                     return <li key={index}>{item.ra}</li>
