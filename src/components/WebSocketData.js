@@ -1,6 +1,10 @@
 import React from 'react';
 
 class WebSocketData extends React.Component {
+    state = {
+        buyText: 'SKUP * BID:',
+        sellText: 'SPRZEDAŻ * ASK:'
+    };
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.data.hasOwnProperty('message')) {
             if (prevProps.data.message.market.code === this.props.currency) {
@@ -26,8 +30,8 @@ class WebSocketData extends React.Component {
         if (this.props.response.hasOwnProperty('data') && !this.props.data.hasOwnProperty('message')) {
             return (
                 <div>
-                    <p>SKUP * BID: {this.props.response.data.buy[0].ra}</p>
-                    <p>SPRZEDAŻ * ASK: {this.props.response.data.sell[0].ra}</p>
+                    <p>{this.state.buyText} {this.props.response.data.buy[0].ra}</p>
+                    <p>{this.state.sellText} {this.props.response.data.sell[0].ra}</p>
                 </div>
             );
         }
@@ -35,8 +39,8 @@ class WebSocketData extends React.Component {
         if (this.props.data.hasOwnProperty('message')) {
             return (
                 <div>
-                    <p>SKUP * BID: {this.props.data.message.highestBid}</p>
-                    <p>SPRZEDAŻ * ASK: {this.props.data.message.lowestAsk}</p>
+                    <p>{this.state.buyText} {this.props.data.message.highestBid}</p>
+                    <p>{this.state.sellText} {this.props.data.message.lowestAsk}</p>
                 </div>
             );
         }
