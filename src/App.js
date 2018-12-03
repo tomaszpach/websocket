@@ -42,7 +42,9 @@ class App extends Component {
             <div className="container-fluid">
                 <Header currency={this.state.currency}/>
                 <CurrencyButton currency={this.state.currency} onChange={(e) => this.changeCurrency(e)}/>
-                <WebSocket response={this.state.response} currency={this.state.currency}/>
+                {this.state.response.hasOwnProperty('data') ?
+                    <WebSocket response={this.state.response} currency={this.state.currency}/> : null}
+
                 <API state={this.state} />
             </div>
         );
