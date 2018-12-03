@@ -4,7 +4,7 @@ import './App.css';
 
 import Header from './components/Header';
 import WebSocket from './components/Websocket/WebSocketComponent';
-import Api from './components/API/Api';
+import API from './components/API/index';
 import axios from "axios";
 
 // todo add gh-pages and push build
@@ -39,7 +39,7 @@ class App extends Component {
             <div className="App">
                 <Header currency={this.state.currency}/>
                 <WebSocket response={this.state.response} currency={this.state.currency}/>
-                <Api state={this.state} changeCurrency={(e) => this.changeCurrency(e)}/>
+                <API state={this.state} changeCurrency={(e) => this.changeCurrency(e)}/>
             </div>
         );
     }

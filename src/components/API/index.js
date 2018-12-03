@@ -4,7 +4,7 @@ import Sell from './Sell';
 
 import CurrencyButton from '../CurrencyButton';
 
-class Api extends Component {
+class Index extends Component {
     render() {
         const {currency, response} = this.props.state;
 
@@ -18,4 +18,4 @@ class Api extends Component {
     }
 }
 
-export default Api;
+export default Index;
