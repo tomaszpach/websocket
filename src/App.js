@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-// import logo from './logo.svg';
 import './App.css';
+import './styles/main.css';
 
 import Header from './components/Header';
 import WebSocket from './components/Websocket/WebSocketComponent';
