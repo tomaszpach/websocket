@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = ({currency}) => {
+const Header = () => {
     return (
         <h2>Booty Bay</h2>
     );
