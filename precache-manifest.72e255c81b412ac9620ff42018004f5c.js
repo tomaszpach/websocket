@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/websocket/static/css/main.48bc3805.chunk.css"
   },
   {
-    "revision": "4a0a3313cf777b88184811ea7cee8834",
+    "revision": "e22bb23bd9b909bf92c02a40d23c811d",
     "url": "/websocket/index.html"
   }
 ];
