@@ -20,21 +20,21 @@ class App extends Component {
         this.props.changeCurrencyR(value);
     }
 
+    highlightChanges(className) {
+        this.setState({[className]: 'updated'},
+            () => setTimeout( () => {
+                this.setState({[className]: ''})
+            }, 250));
+    }
+
     componentDidUpdate(prevProps) {
         if (prevProps.highestBid !== this.props.highestBid) {
-            this.setState({highestClass: 'updated'},
-                () => setTimeout( () => {
-                    this.setState({highestClass: ''})
-                }, 200));
+            this.highlightChanges('highestClass');
         }
 
         if (prevProps.lowestBid !== this.props.lowestBid) {
-            this.setState({lowestClass: 'updated'},
-                () => setTimeout( () => {
-                    this.setState({lowestClass: ''})
-                }, 200));
+            this.highlightChanges('lowestClass');
         }
-
     }
 
     render() {
