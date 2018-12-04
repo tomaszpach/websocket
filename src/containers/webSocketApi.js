@@ -7,10 +7,14 @@ class WebSocketApi extends Component {
     fetchApi() {
         axios.get(this.props.state.url + this.props.state.currency)
             .then(response => {
-                this.props.fetchApi(response);
+                if (response.data.status !== 'Fail') {
+                    this.props.fetchApi(response);
+                } else {
+                    this.props.fetchError(response);
+                }
             })
             .catch(error => {
-                // this.setState({error});
+                this.props.fetchError(error);
             });
     }
 
@@ -60,6 +64,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchApi: (response) => {
             dispatch({type: 'FETCH_API', response: response})
+        },
+        fetchError: (error) => {
+            dispatch({type: 'FETCH_ERROR', error: error})
         },
         updateWebsocket: (bids) => {
             dispatch({type: 'UPDATE_WEBSOCKET', bids: bids})

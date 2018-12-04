@@ -5,8 +5,6 @@ const initState = {
 };
 
 const rootReducer = (state = initState, action) => {
-    // console.log(state);
-    // console.log(action);
     switch (action.type) {
         case 'FETCH_API':
             return {
@@ -14,6 +12,12 @@ const rootReducer = (state = initState, action) => {
                 response: {...action.response},
                 highestBid: action.response.data.buy[0].ra,
                 lowestBid: action.response.data.sell[0].ra
+            };
+
+        case 'FETCH_ERROR':
+            return {
+                ...state,
+                response: {...action.error}
             };
 
         case 'UPDATE_WEBSOCKET':

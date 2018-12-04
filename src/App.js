@@ -22,7 +22,7 @@ class App extends Component {
 
     highlightChanges(className) {
         this.setState({[className]: 'updated'},
-            () => setTimeout( () => {
+            () => setTimeout(() => {
                 this.setState({[className]: ''})
             }, 250));
     }
@@ -42,12 +42,27 @@ class App extends Component {
             <div className="container-fluid">
                 <WebSocketApi/>
                 <Header/>
-                <CurrencyButton currency={this.props.currency} onChange={(e) => this.changeCurrency(e)}/>
-                <Exchange highestBid={this.props.highestBid}
-                          lowestBid={this.props.lowestBid}
-                          highestClass={this.state.highestClass}
-                          lowestClass={this.state.lowestClass}/>
-                <Tables state={this.props}/>
+                {this.props.response.hasOwnProperty('data') && this.props.response.data.status !== 'Fail' ? (
+                    <div>
+                        <CurrencyButton currency={this.props.currency} onChange={(e) => this.changeCurrency(e)}/>
+                        <Exchange highestBid={this.props.highestBid}
+                                  lowestBid={this.props.lowestBid}
+                                  highestClass={this.state.highestClass}
+                                  lowestClass={this.state.lowestClass}/>
+                        <Tables state={this.props}/>
+                    </div>
+                ) : (
+                    <div>
+                        <h2>Nieudana próba pobrania danych</h2>
+                        {this.props.response.hasOwnProperty('data') ? (
+                            <div>
+                                <p>Status: {this.props.response.data.status}</p>
+                                <p>Błąd: {this.props.response.data.errors[0]}</p>
+                            </div>
+                        ) : 'Nieznany bład'}
+
+                    </div>
+                )}
             </div>
         );
     }
