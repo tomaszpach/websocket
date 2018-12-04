@@ -15,11 +15,23 @@
       display: block;
       text-align: center;
       font-size: 20px; }
+      .buy-sell .buy span.updated, .buy-sell .sell span.updated {
+        animation: updated 250ms ease-in-out; }
   .buy-sell .buy b {
     color: #3fcfb4; }
   .buy-sell .sell b {
     color: #fd2a47; }
 
+@keyframes updated {
+  0%, 100% {
+    opacity: 0; }
+  50% {
+    opacity: 1; } }
+@keyframes sk-bounce {
+  0%, 100% {
+    -webkit-transform: scale(0); }
+  50% {
+    -webkit-transform: scale(1); } }
 .orderbook.BID h4 span {
   color: #3fcfb4; }
 .orderbook.ASK h4 span {
