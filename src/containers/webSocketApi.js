@@ -12,7 +12,6 @@ class WebSocketApi extends Component {
             .catch(error => {
                 // this.setState({error});
             });
-
     }
 
     websocket() {
@@ -25,16 +24,11 @@ class WebSocketApi extends Component {
             const data = e.data,
                 parsedData = JSON.parse(data);
 
-            // this.props.updateWebsocket(parsedData);
-
             if (parsedData.hasOwnProperty('message')) {
                 if (parsedData.message.market.code === this.props.state.currency) {
                     this.props.updateWebsocket(parsedData.message);
-                    console.log(parsedData);
                 }
             }
-
-            this.setState({parsedData});
         };
     }
 
@@ -48,8 +42,6 @@ class WebSocketApi extends Component {
             this.fetchApi();
             this.websocket();
         }
-        // console.log(prevProps);
-        // console.log('update?')
     }
 
 
@@ -70,7 +62,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({type: 'FETCH_API', response: response})
         },
         updateWebsocket: (bids) => {
-            dispatch({ type: 'UPDATE_WEBSOCKET', bids: bids })
+            dispatch({type: 'UPDATE_WEBSOCKET', bids: bids})
         }
     }
 };
