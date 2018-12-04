@@ -1,54 +1,53 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import './App.css';
 import './styles/main.css';
 
+import FetchApi from './containers/fetchApi';
 import Header from './components/Header';
 import CurrencyButton from './components/CurrencyButton';
 import WebSocket from './components/Websocket/WebSocketComponent';
 import API from './components/API/index';
-import axios from "axios";
 
 // todo add gh-pages and push build
-// todo przebuduj pod reduxa
-// todo dodaj podświetlenie dla zmian!
+// todo dodaj podświetlenie dla zmian
+// todo posprzataj i przebuduj wszystko pod reduxa
 class App extends Component {
-    state = {
-        url: 'https://api.bitbay.net/rest/trading/orderbook/',
-        currency: 'BTC-PLN',
-        response: {}
-    };
-
-    fetchData() {
-        axios.get(this.state.url + this.state.currency)
-            .then(response => {
-                this.setState({response})
-            })
-            .catch(error => {
-                this.setState({error});
-            });
-    }
-
     changeCurrency(e) {
         const value = e.target.value;
-        this.setState({currency: value}, () => this.fetchData());
-    }
-
-    componentDidMount() {
-        this.fetchData();
+        this.props.changeCurrencyR(value);
     }
 
     render() {
         return (
             <div className="container-fluid">
-                <Header currency={this.state.currency}/>
-                <CurrencyButton currency={this.state.currency} onChange={(e) => this.changeCurrency(e)}/>
-                {this.state.response.hasOwnProperty('data') ?
-                    <WebSocket response={this.state.response} currency={this.state.currency}/> : null}
+                <FetchApi />
+                <Header currency={this.props.currency}/>
+                <CurrencyButton currency={this.props.currency} onChange={(e) => this.changeCurrency(e)}/>
+                {this.props.response.hasOwnProperty('data') ?
+                    <WebSocket response={this.props.response} currency={this.props.currency}/> : null}
 
-                <API state={this.state} />
+                <API state={this.props} />
             </div>
         );
     }
 }
 
-export default App;
+
+const mapStateToProps = (state) => {
+    return {
+        url: state.url,
+        currency: state.currency,
+        response: state.response
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeCurrencyR: (currency) => {
+            dispatch({type: 'CHANGE_CURRENCY', currency: currency})
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

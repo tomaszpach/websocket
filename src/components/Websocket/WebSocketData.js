@@ -11,8 +11,8 @@ class WebSocketData extends React.Component {
     };
 
     componentDidMount() {
-        console.log('mount', this.props.response);
-        console.log('mount', this.props.data);
+        // console.log('mount', this.props.response);
+        // console.log('mount', this.props.data);
         this.setState({
             buy: this.props.response.data.buy[0].ra,
             sell: this.props.response.data.sell[0].ra
@@ -20,8 +20,8 @@ class WebSocketData extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        console.log('prevProps', prevProps); // api
-        console.log('this.props.data', this.props.data); // websocket
+        // console.log('prevProps', prevProps); // api
+        // console.log('this.props.data', this.props.data); // websocket
         // if (prevProps.data) 
         // console.log('prevProps', prevProps.currency);
         // if (prevProps.data.hasOwnProperty('message')) {
@@ -30,8 +30,8 @@ class WebSocketData extends React.Component {
         //     }
         // }
 
-        console.log('prevProps.currency', prevProps.currency);
-        console.log('this.state.currency', this.state.currency);
+        // console.log('prevProps.currency', prevProps.currency);
+        // console.log('this.state.currency', this.state.currency);
 
         if (prevProps.currency !== this.state.currency) {
             console.warn('update po zmianie waluty!');
