@@ -1,7 +1,7 @@
 {
-  "name": "crypto",
+  "name": "websocket",
   "version": "0.1.0",
-  "homepage": "http://tomaszpach.github.io/crypto",
+  "homepage": "http://tomaszpach.github.io/websocket",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.6.0",

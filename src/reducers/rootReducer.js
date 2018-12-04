@@ -6,12 +6,21 @@ const initState = {
 
 const rootReducer = (state = initState, action) => {
     // console.log(state);
-    // console.log(action);
+    console.log(action);
     switch (action.type) {
         case 'FETCH_API':
             return {
                 ...state,
-                response: {...action.response}
+                response: {...action.response},
+                highestBid: action.response.data.buy[0].ra,
+                lowestBid: action.response.data.sell[0].ra
+            };
+
+        case 'UPDATE_WEBSOCKET':
+            return {
+                ...state,
+                highestBid: action.bids.highestBid,
+                lowestBid: action.bids.lowestAsk
             };
 
         case 'CHANGE_CURRENCY':
