@@ -20,17 +20,14 @@ const SellBuyTable = ({response, currency, buySell}) => {
             text2 = 'ASK';
         }
 
-
-        let table = data.map((item, index) => {
-            if (index <= 10) {
-                return (
-                    <tr key={index}>
-                        <td>{item.ra}</td>
-                        <td>{item.pa}</td>
-                        <td>{(item.ra * item.pa).toFixed(2)}</td>
-                    </tr>
-                )
-            }
+        let table = data.slice(0, 10).map((item, index) => {
+            return (
+                <tr key={index}>
+                    <td>{item.ra}</td>
+                    <td>{item.pa}</td>
+                    <td>{(item.ra * item.pa).toFixed(2)}</td>
+                </tr>
+            )
         });
 
         return (

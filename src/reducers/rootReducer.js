@@ -6,7 +6,7 @@ const initState = {
 
 const rootReducer = (state = initState, action) => {
     // console.log(state);
-    console.log(action);
+    // console.log(action);
     switch (action.type) {
         case 'FETCH_API':
             return {
