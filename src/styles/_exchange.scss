@@ -34,21 +34,11 @@
   }
 }
 
-
 @keyframes updated {
   0%, 100% {
-    opacity: 0;
+    background-color: yellow;
   }
   50% {
-    opacity: 1;
-  }
-}
-
-@keyframes sk-bounce {
-  0%, 100% {
-    -webkit-transform: scale(0.0)
-  }
-  50% {
-    -webkit-transform: scale(1.0)
+    background-color: transparent;
   }
 }

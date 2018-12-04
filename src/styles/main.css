@@ -24,14 +24,9 @@
 
 @keyframes updated {
   0%, 100% {
-    opacity: 0; }
+    background-color: yellow; }
   50% {
-    opacity: 1; } }
-@keyframes sk-bounce {
-  0%, 100% {
-    -webkit-transform: scale(0); }
-  50% {
-    -webkit-transform: scale(1); } }
+    background-color: transparent; } }
 .orderbook.BID h4 span {
   color: #3fcfb4; }
 .orderbook.ASK h4 span {

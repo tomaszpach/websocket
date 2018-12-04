@@ -1,6 +1,5 @@
 import React from 'react';
 
-// todo add loader
 const SellBuyTable = ({response, currency, buySell}) => {
 
     if (!response.hasOwnProperty('data')) {

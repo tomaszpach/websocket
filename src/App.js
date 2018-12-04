@@ -9,11 +9,32 @@ import CurrencyButton from './components/CurrencyButton';
 import Tables from './components/Tables/index';
 import Exchange from './components/Exchange';
 
-// todo dodaj podświetlenie dla zmian
 class App extends Component {
+    state = {
+        lowestClass: '',
+        highestClass: ''
+    };
+
     changeCurrency(e) {
         const value = e.target.value;
         this.props.changeCurrencyR(value);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.highestBid !== this.props.highestBid) {
+            this.setState({highestClass: 'updated'},
+                () => setTimeout( () => {
+                    this.setState({highestClass: ''})
+                }, 200));
+        }
+
+        if (prevProps.lowestBid !== this.props.lowestBid) {
+            this.setState({lowestClass: 'updated'},
+                () => setTimeout( () => {
+                    this.setState({lowestClass: ''})
+                }, 200));
+        }
+
     }
 
     render() {
@@ -22,7 +43,10 @@ class App extends Component {
                 <WebSocketApi/>
                 <Header/>
                 <CurrencyButton currency={this.props.currency} onChange={(e) => this.changeCurrency(e)}/>
-                <Exchange highestBid={this.props.highestBid} lowestBid={this.props.lowestBid}/>
+                <Exchange highestBid={this.props.highestBid}
+                          lowestBid={this.props.lowestBid}
+                          highestClass={this.state.highestClass}
+                          lowestClass={this.state.lowestClass}/>
                 <Tables state={this.props}/>
             </div>
         );
