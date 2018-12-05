@@ -17,6 +17,8 @@ const CurrencyButton = ({currency, onChange}) => {
                 }}
             >
                 <MenuItem value="BTC-PLN">BTC-PLN</MenuItem>
+                <MenuItem value="BTC-EUR">BTC-EUR</MenuItem>
+                <MenuItem value="BTC-USD">BTC-USD</MenuItem>
                 <MenuItem value="ETH-PLN">ETH-PLN</MenuItem>
                 <MenuItem value="LSK-PLN">LSK-PLN</MenuItem>
                 <MenuItem value="LTC-PLN">LTC-PLN</MenuItem>
