@@ -41,6 +41,7 @@ class App extends Component {
     render() {
         const loadComponents = this.props.response.hasOwnProperty('data') &&
             this.props.response.data.status !== 'Fail' && !this.props.loading;
+        
         return (
             <div className="container-fluid">
                 <WebSocketApi/>
