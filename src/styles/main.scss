@@ -1,9 +1,7 @@
-.app {
-  background-color: #f8f9fb;
-}
-
-@import 'loader';
-@import 'currency-select';
-@import 'exchange';
+@import "general";
+@import "fonts";
+@import "loader";
+@import "currency-select";
+@import "exchange";
 @import "tables";
 @import "orderbook";
