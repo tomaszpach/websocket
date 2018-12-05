@@ -7,7 +7,7 @@ import Header from './components/Header';
 import CurrencyButton from './components/CurrencyButton';
 import Tables from './components/Tables/index';
 import Exchange from './components/Exchange';
-import Errors from './components/Errors/Errors';
+// import Errors from './components/Errors/Errors';
 import Loader from './components/Loader/Loader';
 
 class App extends Component {
@@ -46,7 +46,7 @@ class App extends Component {
                 <WebSocketApi/>
                 <Header/>
                 {loadComponents ? (
-                    <div>
+                    <div className="content-wrapper">
                         <CurrencyButton currency={this.props.currency} onChange={(e) => this.changeCurrency(e)}/>
                         <Exchange highestBid={this.props.highestBid}
                                   lowestBid={this.props.lowestBid}

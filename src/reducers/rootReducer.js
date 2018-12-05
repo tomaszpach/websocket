@@ -6,8 +6,6 @@ const initState = {
 };
 
 const rootReducer = (state = initState, action) => {
-    console.log(state);
-    console.log('action', action);
     switch (action.type) {
         case 'TOGGLE_LOADER':
             return {
