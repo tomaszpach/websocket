@@ -2,7 +2,9 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <h2>BootyBay</h2>
+        <header>
+            <h2 className="site-title">BootyBay</h2>
+        </header>
     );
 };
 
