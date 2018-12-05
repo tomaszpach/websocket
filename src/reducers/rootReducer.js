@@ -1,11 +1,20 @@
 const initState = {
     url: 'https://api.bitbay.net/rest/trading/orderbook/',
     currency: 'BTC-PLN',
-    response: {}
+    response: {},
+    loading: true
 };
 
 const rootReducer = (state = initState, action) => {
+    console.log(state);
+    console.log('action', action);
     switch (action.type) {
+        case 'TOGGLE_LOADER':
+            return {
+                ...state,
+                loading: action.toggle
+            };
+
         case 'FETCH_API':
             return {
                 ...state,

@@ -7,6 +7,8 @@ import Header from './components/Header';
 import CurrencyButton from './components/CurrencyButton';
 import Tables from './components/Tables/index';
 import Exchange from './components/Exchange';
+import Errors from './components/Errors/Errors';
+import Loader from './components/Loader/Loader';
 
 class App extends Component {
     state = {
@@ -37,11 +39,13 @@ class App extends Component {
     }
 
     render() {
+        const loadComponents = this.props.response.hasOwnProperty('data') &&
+            this.props.response.data.status !== 'Fail' && !this.props.loading;
         return (
             <div className="container-fluid">
                 <WebSocketApi/>
                 <Header/>
-                {this.props.response.hasOwnProperty('data') && this.props.response.data.status !== 'Fail' ? (
+                {loadComponents ? (
                     <div>
                         <CurrencyButton currency={this.props.currency} onChange={(e) => this.changeCurrency(e)}/>
                         <Exchange highestBid={this.props.highestBid}
@@ -51,16 +55,7 @@ class App extends Component {
                         <Tables state={this.props}/>
                     </div>
                 ) : (
-                    <div>
-                        <h2>Nieudana próba pobrania danych</h2>
-                        {this.props.response.hasOwnProperty('data') ? (
-                            <div>
-                                <p>Status: {this.props.response.data.status}</p>
-                                <p>Błąd: {this.props.response.data.errors[0]}</p>
-                            </div>
-                        ) : 'Nieznany bład'}
-
-                    </div>
+                    <Loader/>
                 )}
             </div>
         );
@@ -73,7 +68,8 @@ const mapStateToProps = (state) => {
         currency: state.currency,
         response: state.response,
         highestBid: state.highestBid,
-        lowestBid: state.lowestBid
+        lowestBid: state.lowestBid,
+        loading: state.loading
     }
 };
 

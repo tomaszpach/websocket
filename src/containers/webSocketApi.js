@@ -5,10 +5,12 @@ import axios from "axios";
 class WebSocketApi extends Component {
 
     fetchApi() {
+        this.props.toggleLoader(true);
         axios.get(this.props.state.url + this.props.state.currency)
             .then(response => {
                 if (response.data.status !== 'Fail') {
                     this.props.fetchApi(response);
+                    this.props.toggleLoader(false)
                 } else {
                     this.props.fetchError(response);
                 }
@@ -62,6 +64,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        toggleLoader: (toggle) => {
+            dispatch({type: 'TOGGLE_LOADER', toggle: toggle})
+        },
         fetchApi: (response) => {
             dispatch({type: 'FETCH_API', response: response})
         },
