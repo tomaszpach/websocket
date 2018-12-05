@@ -1,13 +1,13 @@
 {
-  "main.css": "/websocket/static/css/main.15fc27c6.chunk.css",
-  "main.js": "/websocket/static/js/main.424fb730.chunk.js",
-  "main.js.map": "/websocket/static/js/main.424fb730.chunk.js.map",
+  "main.css": "/websocket/static/css/main.57af8350.chunk.css",
+  "main.js": "/websocket/static/js/main.0c235e7a.chunk.js",
+  "main.js.map": "/websocket/static/js/main.0c235e7a.chunk.js.map",
   "static/js/1.8f75a04b.chunk.js": "/websocket/static/js/1.8f75a04b.chunk.js",
   "static/js/1.8f75a04b.chunk.js.map": "/websocket/static/js/1.8f75a04b.chunk.js.map",
   "runtime~main.js": "/websocket/static/js/runtime~main.88c4ca50.js",
   "runtime~main.js.map": "/websocket/static/js/runtime~main.88c4ca50.js.map",
-  "static/css/main.15fc27c6.chunk.css.map": "/websocket/static/css/main.15fc27c6.chunk.css.map",
+  "static/css/main.57af8350.chunk.css.map": "/websocket/static/css/main.57af8350.chunk.css.map",
   "index.html": "/websocket/index.html",
-  "precache-manifest.3c51f6c3664c71aca15f2555033cde3f.js": "/websocket/precache-manifest.3c51f6c3664c71aca15f2555033cde3f.js",
+  "precache-manifest.cd297b99a956ac32297ea9f40bda6777.js": "/websocket/precache-manifest.cd297b99a956ac32297ea9f40bda6777.js",
   "service-worker.js": "/websocket/service-worker.js"
 }
