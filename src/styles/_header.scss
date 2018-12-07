@@ -5,6 +5,26 @@ header {
 
   .site-title {
     margin-bottom: 0;
+
+    .text1 {
+      margin-right: -3px;
+      margin-left: 0;
+      position: relative;
+      background-color: #fff;
+      animation: textIn 3s 1;
+    }
+  }
+}
+
+
+@keyframes textIn {
+  0% {
+    margin-right: -56px;
+    margin-left: -130px;
+  }
+
+  70% {
+    margin-right: -56px;
   }
 }
 
