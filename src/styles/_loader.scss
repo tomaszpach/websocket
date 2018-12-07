@@ -1,11 +1,15 @@
-.loader-wrap{
+.loader-wrap {
   position: absolute;
-  left: 0;right: 0;top: 0;bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   margin: auto;
   background-color: #202f45;
+  animation: loaderIn 250ms 1;
 }
 
-.loader{
+.loader {
   $loader-size: 4;
   $animation-duration: 2s;
   $animation-speed: 10;
@@ -15,13 +19,16 @@
   $loader-font-family: 'Arial';
 
   position: absolute;
-  left: 0;right: 0;top: 0;bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   margin: auto;
   height: ($loader-size*10px);
   width: ($loader-size*20px);
   box-sizing: border-box;
 
-  .loader-item{
+  .loader-item {
     position: relative;
     float: left;
     height: ($loader-size*10px);
@@ -30,14 +37,14 @@
     background-color: $loader-color;
 
     @for $i from 1 through 10 {
-      &:nth-child(#{$i}){
+      &:nth-child(#{$i}) {
         animation: loader-item-#{$i} $animation-duration linear infinite;
       }
     }
 
   }
 
-  &:after{
+  &:after {
     content: 'Loading...';
     font-size: ($loader-size*4px);
     font-family: $loader-font-family;
@@ -52,19 +59,30 @@
 
   @for $i from 0 through 9 {
     @keyframes loader-item-#{$i+1}{
-      #{$i+1+$i*5 * 1%}{
+      #{$i+1+$i*5 * 1%} {
         transform: scaleY(1);
       }
-      #{$i+1+$i*5+$animation-speed * 1%}{
+      #{$i+1+$i*5+$animation-speed * 1%} {
         transform: scaleY($animation-scale);
       }
-      #{$i+1+$i*5+$animation-speed*2 * 1%}{
+      #{$i+1+$i*5+$animation-speed*2 * 1%} {
         transform: scaleY(1);
       }
-      100%{
+      100% {
         transform: scaleY(1);
       }
     }
   }
+}
 
+@keyframes loaderIn {
+  0% {
+    opacity: 0;
+    background-color: transparent;
+  }
+
+  100% {
+    background-color: #202f45;
+    opacity: 1;
+  }
 }
