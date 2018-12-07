@@ -41,23 +41,27 @@ class App extends Component {
     render() {
         const loadComponents = this.props.response.hasOwnProperty('data') &&
             this.props.response.data.status !== 'Fail' && !this.props.loading;
-        
+
         return (
             <div className="container-fluid">
                 <WebSocketApi/>
                 <Header/>
-                {loadComponents ? (
-                    <div className="content-wrapper">
-                        <CurrencyButton currency={this.props.currency} onChange={(e) => this.changeCurrency(e)}/>
-                        <Exchange highestBid={this.props.highestBid}
-                                  lowestBid={this.props.lowestBid}
-                                  highestClass={this.state.highestClass}
-                                  lowestClass={this.state.lowestClass}/>
-                        <Tables state={this.props}/>
-                    </div>
-                ) : (
-                    <Loader/>
-                )}
+                <div className="content-wrapper">
+                    <CurrencyButton currency={this.props.currency} onChange={(e) => this.changeCurrency(e)}/>
+                    {loadComponents ? (
+                        <div className="data">
+                            <Exchange highestBid={this.props.highestBid}
+                                      lowestBid={this.props.lowestBid}
+                                      highestClass={this.state.highestClass}
+                                      lowestClass={this.state.lowestClass}/>
+                            <Tables state={this.props}/>
+                        </div>
+                    ) : (
+                        <div className="loader-wrapper">
+                            <Loader/>
+                        </div>
+                    )}
+                </div>
             </div>
         );
     }
