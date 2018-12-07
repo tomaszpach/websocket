@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Cinzel");
 .data {
-  animation: dataIn 350ms 1;
+  animation: dataIn 1s 1;
 }
 
 .loader-wrapper {

@@ -38,6 +38,7 @@ class App extends Component {
         }
     }
 
+    // todo a moze by tak dodac animacje dla wejscia selecta z wyborem waluty?
     render() {
         const loadComponents = this.props.response.hasOwnProperty('data') &&
             this.props.response.data.status !== 'Fail' && !this.props.loading;
