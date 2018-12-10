@@ -46,7 +46,6 @@ class WebSocketApi extends Component {
     componentDidUpdate(prevProps) {
         if (prevProps.state.currency !== this.props.state.currency) {
             this.fetchApi();
-            this.websocket();
         }
     }
 
